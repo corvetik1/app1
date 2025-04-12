@@ -1,0 +1,276 @@
+/* src/index.css */
+
+/* Базовые стили для html и body */
+html,
+body {
+  height: 100%; /* Убеждаемся, что высота занимает весь экран для ScaledContainer */
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход для темы */
+  overflow: visible; /* Убираем прокрутку на body, оставляем только в ScaledContainer */
+}
+
+/* Стили для кода */
+code {
+  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  background-color: #f5f5f5; /* Лёгкий фон для кода */
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Поддержка светлой темы */
+body.light-mode {
+  background-color: #ffffff;
+  color: #212121; /* Тёмно-серый для лучшей читаемости */
+}
+
+/* Поддержка тёмной темы */
+body.dark-mode {
+  background-color: #121212; /* Более тёмный фон для тёмной темы */
+  color: #e0e0e0; /* Светло-серый текст для контраста */
+}
+
+/* Стили для компонентов Material-UI в тёмной теме */
+body.dark-mode .MuiPaper-root {
+  background-color: #1e1e1e; /* Более тёмный фон для карточек */
+  color: #e0e0e0;
+  border: 1px solid #333333; /* Улучшенная граница */
+}
+
+/* Кнопки в тёмной теме */
+body.dark-mode .MuiButton-contained {
+  background-color: #bb86fc; /* Фиолетовый цвет для кнопок */
+  color: #ffffff;
+}
+
+body.dark-mode .MuiButton-contained:hover {
+  background-color: #cf6679; /* Тёплый оттенок при наведении */
+}
+
+/* Стили для текста и полей ввода в тёмной теме */
+body.dark-mode .MuiInputBase-root {
+  color: #e0e0e0; /* Светлый текст в полях ввода */
+}
+
+body.dark-mode .MuiOutlinedInput-notchedOutline {
+  border-color: #444444; /* Граница полей ввода */
+}
+
+body.dark-mode .MuiInputLabel-root {
+  color: #b0b0b0; /* Цвет меток полей ввода */
+}
+
+body.dark-mode .MuiInputLabel-root.Mui-focused {
+  color: #bb86fc; /* Цвет меток при фокусе */
+}
+
+body.dark-mode .MuiSlider-thumb {
+  background-color: #bb86fc; /* Цвет ползунка */
+}
+
+body.dark-mode .MuiSlider-track {
+  background-color: #bb86fc; /* Цвет трека ползунка */
+}
+
+/* Стили для иконок в тёмной теме */
+body.dark-mode .MuiSvgIcon-root {
+  color: #e0e0e0; /* Цвет иконок */
+}
+
+/* Адаптивность: уменьшение шрифта на маленьких экранах */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px; /* Уменьшаем базовый размер шрифта */
+  }
+  .custom-tab-label {
+    font-size: 9px !important; /* Уменьшаем текст в табах */
+    max-width: 70px; /* Уменьшаем ширину текста */
+  }
+  .custom-list-item-text {
+    font-size: 9px !important; /* Уменьшаем текст в мобильном меню */
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 12px; /* Ещё меньший шрифт для очень маленьких экранов */
+  }
+  .custom-tab-label {
+    font-size: 8px !important;
+    max-width: 50px;
+  }
+  .custom-list-item-text {
+    font-size: 8px !important;
+    max-width: 120px;
+  }
+}
+
+/* Улучшение читаемости текста */
+body {
+  line-height: 1.6; /* Увеличиваем межстрочный интервал */
+}
+
+/* Стили для ссылок */
+a {
+  color: #1976d2; /* Материальный синий для ссылок */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #115293; /* Темнее при наведении */
+}
+
+body.dark-mode a {
+  color: #bb86fc; /* Фиолетовый для тёмной темы */
+}
+
+body.dark-mode a:hover {
+  color: #cf6679; /* Тёплый оттенок при наведении */
+}
+
+/* Контейнер для контента */
+#root {
+  min-height: 100vh; /* Убеждаемся, что контент занимает всю высоту */
+  height: 100%; /* Полная высота для корректной работы ScaledContainer */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Убираем лишние отступы у списков */
+ul,
+ol {
+  margin: 0;
+  padding: 0 0 0 20px; /* Отступ только слева */
+}
+
+/* Стили для заголовков */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 16px 0; /* Отступ снизу для заголовков */
+  font-weight: 500; /* Средняя жирность текста */
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #e0e0e0; /* Светлый цвет заголовков в тёмной теме */
+}
+
+/* Стили для модальных окон в тёмной теме */
+body.dark-mode .MuiDialogTitle-root {
+  color: #ffffff; /* Белый текст заголовков модальных окон */
+}
+
+body.dark-mode .MuiDialogContent-root {
+  color: #e0e0e0; /* Светлый текст содержимого модальных окон */
+}
+
+body.dark-mode .MuiDialogActions-root .MuiButton-root {
+  color: #bb86fc; /* Цвет кнопок в действиях модального окна */
+}
+
+/* Улучшение прокрутки для масштабируемого контента */
+.scaled-container {
+  overflow: auto; /* Добавляем прокрутку для масштабируемого контейнера */
+  width: 100%;
+  height: 100%;
+}
+
+/* Стили для текста в меню AppBar (Tabs) */
+.custom-tab-label {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px; /* Ограничиваем ширину текста */
+}
+
+/* Стили для текста в мобильном меню Drawer (ListItemText) */
+.custom-list-item-text {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 10px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 170px;
+}
+
+/* Дополнительные стили для таблиц в Material-UI */
+body.dark-mode .MuiTableCell-root {
+  color: #e0e0e0; /* Цвет текста в ячейках таблицы */
+  border-bottom: 1px solid #333333; /* Граница ячеек в тёмной теме */
+}
+
+body.dark-mode .MuiTableHead-root .MuiTableCell-root {
+  background-color: #2e2e2e; /* Фон заголовков таблицы */
+  color: #bb86fc; /* Цвет текста заголовков */
+}
+
+/* Стили для Snackbar в тёмной теме */
+body.dark-mode .MuiSnackbarContent-root {
+  background-color: #333333; /* Тёмный фон уведомлений */
+  color: #e0e0e0; /* Светлый текст */
+}
+
+/* Поддержка высокой контрастности для доступности */
+@media (prefers-contrast: high) {
+  body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  a {
+    color: #0000ff; /* Яркий синий для ссылок в высоком контрасте */
+  }
+  body.dark-mode a {
+    color: #00ffff; /* Яркий голубой для тёмной темы */
+  }
+}
+
+/* Поддержка уменьшенного движения для доступности */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  a,
+  .MuiButton-contained {
+    transition: none; /* Отключаем анимации */
+  }
+}
+
+/* Стили для фокуса (доступность) */
+:focus {
+  outline: 2px solid #1976d2; /* Яркий фокус для светлой темы */
+  outline-offset: 2px;
+}
+
+body.dark-mode :focus {
+  outline: 2px solid #bb86fc; /* Фокус для тёмной темы */
+}
+
+/* Поддержка печати */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  body.dark-mode .MuiPaper-root,
+  body.dark-mode .MuiButton-contained {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+  }
+}

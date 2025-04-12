@@ -1,0 +1,6 @@
+node hashPassword.js
+
+
+npm install bcrypt
+
+INSERT INTO users (username, password) VALUES ('Логин', 'ввести пароль');

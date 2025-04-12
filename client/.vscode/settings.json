@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,          // Форматировать при сохранении
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Использовать Prettier
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true        // Исправлять ESLint-ошибки при сохранении
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
